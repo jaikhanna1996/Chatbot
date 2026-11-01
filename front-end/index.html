@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+
+    <div id="chat-container" class="flex-1 overflow-y-auto px-4 py-6 space-y-4 max-w-3xl mx-auto w-full">
+    </div>
+
+    <div class="sticky bottom-0 bg-gray-950 px-4 py-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="relative">
+                <textarea id="textarea-prompt" rows="1" placeholder="Ask something..."
+                    class="w-full resize-none rounded-2xl bg-gray-900 text-gray-100 placeholder-gray-500 px-4 py-4 pr-24 border border-gray-700 focus:outline-none focus:border-gray-500"></textarea>
+                <button id="ask-btn"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-100 font-medium px-5 py-2 transition">
+                    Ask
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/front-end/script.js"></script>
+</body>
+</html>
