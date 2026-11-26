@@ -232,7 +232,7 @@ function handleAsk() {
 }
 
 async function callServer(inputText) {
-  const chatUrl = `${window.location.protocol}//${window.location.hostname}:3000/chat`;
+  const chatUrl = "/chat";
   const response = await fetch(chatUrl, {
     method: 'POST',
     headers: {

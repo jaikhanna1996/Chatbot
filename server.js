@@ -11,11 +11,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());
-app.use('/front-end', express.static(path.join(__dirname, 'front-end')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'front-end', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/chat', async (req, res) => {
   try {

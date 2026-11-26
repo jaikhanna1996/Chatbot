@@ -8,10 +8,21 @@ const systemMessage = {
     `You are Jarvis, a helpful assistant who answers questions clearly. Current date-time: ${new Date().toISOString()}. If a user asks for web information, use the webSearch tool when needed. Format responses as readable Markdown: use short paragraphs, headings when useful, and separate list items onto their own lines. When giving multiple facts or results, use a numbered or bulleted list instead of putting them in one long sentence.`
 };
 
-const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY });
+const groqApiKey = process.env.GROQ_API_KEY || process.env.GROK_API_KEY;
+const tavilyApiKey = process.env.TAVILY_API_KEY;
+
+if (!groqApiKey) {
+  throw new Error("GROQ_API_KEY is missing from the environment.");
+}
+
+if (!tavilyApiKey) {
+  throw new Error("TAVILY_API_KEY is missing from the environment.");
+}
+
+const tvly = tavily({ apiKey: tavilyApiKey });
 
 const client = new OpenAI({
-  apiKey: process.env.GROK_API_KEY,
+  apiKey: groqApiKey,
   baseURL: "https://api.groq.com/openai/v1",
 });
 
